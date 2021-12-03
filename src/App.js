@@ -4,8 +4,8 @@ import './App.css';
 function App() {
   return (
     <>
-      <Nav />   
-      <h1>Hello Word</h1>
+      <Nav nombre="Juan" apellido="Maroñas" links={ [ {href:"#", name:"inicio"}, {href:"#", name:"Productos"}, {href:"#", name:"Contactos"}, {href:"#", name:"Carrito"} ] }/>   
+      <h1>Bienvenido</h1>
     </>
   );
 }

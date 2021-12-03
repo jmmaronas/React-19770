@@ -1,10 +1,14 @@
 body{
-  background-color: aqua;
+  background-color: silver;
 }
 ul{
   display: flex;
   justify-content: space-around;
   list-style: none;
+  color: white;
+}
+ul a{
+  text-decoration: none;
   color: white;
 }
 .titulo{
