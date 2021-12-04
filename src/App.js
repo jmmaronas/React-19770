@@ -1,11 +1,19 @@
-import Nav from './components/Navbar'
+import Navbar from './components/Navbar';
+import ItemsListContainer from './components/ItemListContainer';
+//CSS Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+//CSS
 import './App.css';
+ 
+
 
 function App() {
   return (
     <>
-      <Nav nombre="Juan" apellido="Maroñas" links={ [ {href:"#", name:"inicio"}, {href:"#", name:"Productos"}, {href:"#", name:"Contactos"}, {href:"#", name:"Carrito"} ] }/>   
-      <h1>Bienvenido</h1>
+      <Navbar nombre="Juan" apellido="Maroñas" links={ [ {href:"#", name:"inicio"}, {href:"#", name:"Productos"}, {href:"#", name:"Contactos"}, {href:"#", name:"Carrito"} ] }/>   
+      
+      <ItemsListContainer saludo="Lista de Productos"/>
+      
     </>
   );
 }

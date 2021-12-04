@@ -11,12 +11,33 @@ ul a{
   text-decoration: none;
   color: white;
 }
+nav{
+  padding-top: 2rem;
+  width: 60rem;
+}
 .titulo{
+  width: 70rem;
   margin: auto;
 }
 .head{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
   color: white;
   margin: auto;
+}
+.head img{
+  width: 5rem;
+}
+.cardContainer{
+  display: flex;  
+  flex-flow: row  wrap;
+  justify-content: space-around;    
+}
+.card{
+  margin-bottom: 20px ;
+}
+h2{
+  color: white;
+  text-align: center;
 }
