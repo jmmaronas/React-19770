@@ -33,7 +33,7 @@ function ItemListContainer() {
       return <div>Loading...</div>;
     } else {
       return (
-        <ItemList productos={items} />
+        <ItemList productos={items.slice(0)} />
       );
     }
   }

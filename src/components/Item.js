@@ -16,7 +16,7 @@ function Item({e}){
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>$ {e.precio}</ListGroupItem>
-                    <ListGroupItem><ItemCount pedido={e.cantidad}/></ListGroupItem>
+                    <ListGroupItem><ItemCount producto={e}/></ListGroupItem>                    
                     {/*<ListGroupItem>Vestibulum at eros</ListGroupItem> */}
                 </ListGroup>
                 <Card.Body>
