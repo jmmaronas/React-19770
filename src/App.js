@@ -13,6 +13,12 @@ const links=[
   {href:"#", name:"Productos"}, 
   {href:"#", name:"Contactos"}  
 ]; 
+const cuerpo=document.querySelector("body");
+cuerpo.addEventListener("click", (e)=>{
+  if(e.target.classList.contains("btn")){
+    document.querySelector("#contadorCarrito").innerHTML = (JSON.parse(localStorage.getItem("carrito")).length)
+  }
+})
 
 function App() {
   return (

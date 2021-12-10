@@ -11,7 +11,7 @@ function ItemCount({producto}){
         let carrito= JSON.parse(localStorage.getItem("carrito")) || [];
         producto.cantidad=counter
         carrito.push(producto);
-        localStorage.setItem("carrito", JSON.stringify(carrito));        
+        localStorage.setItem("carrito", JSON.stringify(carrito));           
     }
     
    return(
@@ -24,7 +24,7 @@ function ItemCount({producto}){
                 </Row>
                 <Row>
                     <Col><Button variant="outline-danger" onClick={agregar}>Agregar</Button></Col>
-                </Row>    
+                </Row>                    
             </Container>
         </>
    )

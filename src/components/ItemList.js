@@ -17,8 +17,7 @@ import Item from './Item';
 
 function ItemList({productos}){          
     return(
-        <>
-            <h2></h2> 
+        <>             
             <div className="cardContainer">
                 {productos.map( (e,i)=><Item key={i} e={e}/>)}
             </div>     

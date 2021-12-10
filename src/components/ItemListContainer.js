@@ -14,15 +14,17 @@ function ItemListContainer() {
         .then(res => res.json())
         .then(
           (result) => {
-            setIsLoaded(true);
-            setItems(result);
+            setTimeout(()=>{
+              setIsLoaded(true);
+              setItems(result);
+            },2000);
           },
           // Nota: es importante manejar errores aquí y no en 
           // un bloque catch() para que no interceptemos errores
           // de errores reales en los componentes.
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
+          (error) => {            
+              setIsLoaded(true);
+              setError(error);            
           }
         )
     }, [])

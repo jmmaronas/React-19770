@@ -1,8 +1,8 @@
 import Button from 'react-bootstrap/Button'
 import CartWidget from './CartWidget';
-function Navbar(props){
-    console.log(props.nombre);
-    
+
+function Navbar(props){  
+   
     return(
         <header className="head">
             <div>
