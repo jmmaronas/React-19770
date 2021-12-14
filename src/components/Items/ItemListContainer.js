@@ -1,7 +1,7 @@
 import ItemList from './ItemList'
 import { useState, useEffect } from 'react';
 
-function ItemListContainer() {
+function ItemListContainer({aregar}) {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
@@ -13,11 +13,9 @@ function ItemListContainer() {
       fetch("./productos.json")
         .then(res => res.json())
         .then(
-          (result) => {
-            setTimeout(()=>{
+          (result) => {            
               setIsLoaded(true);
-              setItems(result);
-            },2000);
+              setItems(result);            
           },
           // Nota: es importante manejar errores aquí y no en 
           // un bloque catch() para que no interceptemos errores

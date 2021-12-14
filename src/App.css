@@ -31,8 +31,7 @@ nav{
   color: white;
   margin: auto;
 }
-.head img{
-  
+.head img{  
   height: 3rem;
   margin-top: 2rem;
 }
@@ -76,4 +75,7 @@ h2{
 }
 .carritoNav{
   position: relative;
+}
+.container{
+  display: flex;
 }

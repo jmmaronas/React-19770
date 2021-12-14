@@ -19,7 +19,7 @@ function ItemList({productos}){
     return(
         <>             
             <div className="cardContainer">
-                {productos.map( (e,i)=><Item key={i} e={e}/>)}
+                {productos.map(e=><Item key={e.id} e={e}/>)}
             </div>     
         </>
     );
