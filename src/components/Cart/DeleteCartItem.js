@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 
-function DeleteCartItem({itemId}) {
+function DeleteCartItem({itemId}){
     function quitar() {        
         const carrito=JSON.parse(localStorage.getItem("carrito"));
         let carritoFinal= carrito.filter(e=>e.id !== itemId);        
