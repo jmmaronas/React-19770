@@ -13,7 +13,7 @@ function Navbar({nombre, apellido, links, fun, carrito}){
                     <ul>{links.map( (e, i) =><Button key={i} variant="secondary"><a href={e.href}>{e.name}</a></Button> )}    
                     </ul>                       
                 </nav>
-                <CartWidget fun={fun} carrito={carrito}/>
+                <CartWidget fun={fun}/>
             </div>
         </header>
     );

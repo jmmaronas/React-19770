@@ -1,9 +1,24 @@
 import CartItem from "./CartItem";
 import { Table } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
 //const cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function CartItemContainer({carrito}){
+function CartItemContainer(){
+    const [carrito, setCarrito]= useState([]);
+
+    useEffect(() => {
+        setCarrito(JSON.parse(localStorage.getItem("carrito")));
+    }, []);
+    // document.querySelector("body").addEventListener("click", (e)=>{
+    //     if(e.target.classList.contains("agregarProducto")){
+    //       setCarrito(JSON.parse(localStorage.getItem("carrito")));
+    //     }else if(e.target.classList.contains("botonBorrar")){
+    //       setCarrito(JSON.parse(localStorage.getItem("carrito")));
+    //     }  
+    // });
+    
+
     let total=0;
     carrito.map(e=>{return total+=(e.precio*e.cantidad)})
     return(       

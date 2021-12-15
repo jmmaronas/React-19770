@@ -19,27 +19,19 @@ const links=[
 
 function App() {
   const [show, setShow] = useState(false);
-  const [carrito, setCarrito] = useState(JSON.parse(localStorage.getItem("carrito"))||[]);
+  
   //Funcion Mostrar carrito en CartWidget
   function toggle(){
     setShow(!show);
   } 
-  const cuerpo=document.querySelector("body");
-  cuerpo.addEventListener("click", (e)=>{
-    if(e.target.classList.contains("agregarProducto")){
-      setCarrito(JSON.parse(localStorage.getItem("carrito")));
-    }else if(e.target.classList.contains("botonBorrar")){
-      setCarrito(JSON.parse(localStorage.getItem("carrito")));
-    }  
-  });
   
-  return(
+  return( 
     <>
-      <Navbar nombre="Juan" apellido="Maroñas" links={links} fun={toggle} carrito={carrito}/>   
+      <Navbar nombre="Juan" apellido="Maroñas" links={links} fun={toggle}/>   
       <div className="container">
         <ItemListContainer/>
         {/* <ItemsList saludo="Lista de Productos"/>  */}
-        {show ? <CartItemContainer carrito={carrito}/> : []}
+        {show ? <CartItemContainer /> : []}
         
       </div>      
     </>  
