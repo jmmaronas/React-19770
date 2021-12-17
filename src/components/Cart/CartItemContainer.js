@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 
 function CartItemContainer(){
     const [carrito, setCarrito]= useState([]);
-
+    
+    
     useEffect(() => {
         setCarrito(JSON.parse(localStorage.getItem("carrito")));
     }, []);
@@ -22,7 +23,7 @@ function CartItemContainer(){
     let total=0;
     carrito.map(e=>{return total+=(e.precio*e.cantidad)})
     return(       
-        <div className="tableContainer">
+        <div className="tableContainer container">
             <Table striped bordered hover>
             <thead>
                 <tr>

@@ -1,11 +1,11 @@
 
     [
-    {"id":"a01", "name":"Pc", "description":"i5, 8GB,SSD 500GB","stock":10, "cantidad":1, "precio":80000, "img":"./assets/pc.jpg"},
-    {"id":"a02", "name":"Pc", "description":"i3, 4GB,SSD 500GB","stock":10, "cantidad":1, "precio":60000, "img":"./assets/pc.jpg"},
-    {"id":"a03", "name":"Pc", "description":"i7, 16GB,SSD 500GB","stock":10, "cantidad":1, "precio":100000, "img":"./assets/pc.jpg"},
-    {"id":"a04", "name":"Pc", "description":"Celeron, 4GB,SSD 240GB","stock":10, "cantidad":1, "precio":35000, "img":"./assets/pc.jpg"},
-    {"id":"a05", "name":"Pc", "description":"Pentium, 8GB,SSD 240GB","stock":10, "cantidad":1, "precio":50000, "img":"./assets/pc.jpg"},
-    {"id":"a06", "name":"Note", "description":"Pentium, 8GB,SSD 240GB","stock":10, "cantidad":1, "precio":50000, "img":"./assets/note.png"},
-    {"id":"a07", "name":"Note", "description":"i7, 16GB,SSD 500GB","stock":10, "cantidad":1, "precio":100000, "img":"./assets/note.png"},
-    {"id":"a08", "name":"Note", "description":"Celeron, 4GB,SSD 240GB","stock":10, "cantidad":1, "precio":35000, "img":"./assets/note.png"}
+    {"id":"a01", "name":"Pc", "promo":"novedades", "description":"i5, 8GB,SSD 500GB","stock":10, "cantidad":1, "precio":80000, "img":"./assets/pc.jpg"},
+    {"id":"a02", "name":"Pc", "promo":"novedades", "description":"i3, 4GB,SSD 500GB","stock":10, "cantidad":1, "precio":60000, "img":"./assets/pc.jpg"},
+    {"id":"a03", "name":"Pc", "promo":"", "description":"i7, 16GB,SSD 500GB","stock":10, "cantidad":1, "precio":100000, "img":"./assets/pc.jpg"},
+    {"id":"a04", "name":"Pc", "promo":"novedades", "description":"Celeron, 4GB,SSD 240GB","stock":10, "cantidad":1, "precio":35000, "img":"./assets/pc.jpg"},
+    {"id":"a05", "name":"Pc", "promo":"novedades", "description":"Pentium, 8GB,SSD 240GB","stock":10, "cantidad":1, "precio":50000, "img":"./assets/pc.jpg"},
+    {"id":"a06", "name":"Note", "promo":"", "description":"Pentium, 8GB,SSD 240GB","stock":10, "cantidad":1, "precio":50000, "img":"./assets/note.png"},
+    {"id":"a07", "name":"Note", "promo":"descuentos", "description":"i7, 16GB,SSD 500GB","stock":10, "cantidad":1, "precio":100000, "img":"./assets/note.png"},
+    {"id":"a08", "name":"Note", "promo":"descuentos", "description":"Celeron, 4GB,SSD 240GB","stock":10, "cantidad":1, "precio":35000, "img":"./assets/note.png"}
     ]

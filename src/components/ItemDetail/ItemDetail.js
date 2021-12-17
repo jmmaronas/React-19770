@@ -1,15 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import { Link } from 'react-router-dom';
+import ItemCount from '../Items/ItemCount';
 
 
-function Item({e}){    
-    const path = window.location.pathname;
+function ItemDetail({e}) {
     return(
-        <Link to={"/item/"+e.id}>   
-            <Card  style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={path!=="/" ? "."+e.img : e.img} alt="cargando"/>
+        <>   
+            <Card  style={{ width: '18rem', margin: 'auto' }}>
+                <Card.Img variant="top" src={"."+e.img} alt="cargando"/>
                 <Card.Body>
                     <Card.Title>{e.name}</Card.Title>
                     <Card.Text>
@@ -18,11 +17,12 @@ function Item({e}){
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>$ {e.precio}</ListGroupItem>
-                    <ListGroupItem>Seleccionar</ListGroupItem>                                    
+                    <ListGroupItem><ItemCount producto={e}/></ListGroupItem>                                    
                 </ListGroup>                
             </Card>
-        </Link>        
-    );
+        </>        
+    )
+    
 }
 
-export default Item;
+export default ItemDetail;

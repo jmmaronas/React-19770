@@ -1,11 +1,12 @@
 import ItemList from './ItemList'
 import { useState, useEffect } from 'react';
 
-function ItemListContainer({aregar}) {
+
+function ItemListContainer() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
-  
+     
     // Note: the empty deps array [] means
     // this useEffect will run once
     // similar to componentDidMount()
@@ -32,8 +33,9 @@ function ItemListContainer({aregar}) {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
+      localStorage.setItem("listProduct", JSON.stringify(items));
       return (
-        <ItemList productos={items.slice(0)} />
+        <ItemList productos={items.slice(0)}/>
       );
     }
   }

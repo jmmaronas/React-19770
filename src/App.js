@@ -1,7 +1,9 @@
 import Navbar from './components/NavBar/Navbar';
 import ItemListContainer from './components/Items/ItemListContainer';
 import CartItemContainer from './components/Cart/CartItemContainer';
-import { useState } from 'react';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import ItemNewContainer from './components/ItemNews/ItemNewContiner';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //CSS Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,32 +11,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
-const links=[ 
-  {href:"#", name:"Novedades"},
-  {href:"#", name:"Productos"}, 
-  {href:"#", name:"Contactos"}  
+const links=[   
+  {href:"/", name:"Inicio", id: 1},
+  {href:"/novedades/novedades", name:"Novedades", id: 2}, 
+  {href:"/descuento/descuentos", name:"Descuentos", id: 3}  
 ]; 
 
 
 
-function App() {
-  const [show, setShow] = useState(false);
-  
-  //Funcion Mostrar carrito en CartWidget
-  function toggle(){
-    setShow(!show);
-  } 
+function App() {   
   
   return( 
-    <>
-      <Navbar nombre="Juan" apellido="Maroñas" links={links} fun={toggle}/>   
-      <div className="container">
-        <ItemListContainer/>
-        {/* <ItemsList saludo="Lista de Productos"/>  */}
-        {show ? <CartItemContainer /> : []}
-        
-      </div>      
-    </>  
+    <BrowserRouter>
+      <Navbar nombre="Juan" apellido="Maroñas" links={links}/>         
+      <Routes>
+        <Route path="/" element={<ItemListContainer/>} />
+        <Route path="/item/:id" element={<ItemDetailContainer/>} />
+        <Route path="/novedades/:filter" element={<ItemNewContainer/>} />   
+        <Route path="/descuento/:filter" element={<ItemNewContainer/>} />     
+        <Route path="/carrito" element={<CartItemContainer />} />    
+      </Routes>
+    </BrowserRouter>
     );
     
 }

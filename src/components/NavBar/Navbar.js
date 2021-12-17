@@ -1,7 +1,7 @@
-import Button from 'react-bootstrap/Button'
 import CartWidget from './CartWidget';
+import { NavLink} from 'react-router-dom';
 
-function Navbar({nombre, apellido, links, fun, carrito}){  
+function Navbar({nombre, apellido, links}){  
    
     return(
         <header className="head">
@@ -10,10 +10,10 @@ function Navbar({nombre, apellido, links, fun, carrito}){
             </div>
             <div className="titulo">
                 <nav>
-                    <ul>{links.map( (e, i) =><Button key={i} variant="secondary"><a href={e.href}>{e.name}</a></Button> )}    
+                    <ul>{links.map( (e, i) =><li key={i}><NavLink to={e.href}>{e.name} </NavLink></li> )}    
                     </ul>                       
                 </nav>
-                <CartWidget fun={fun}/>
+                <CartWidget/>
             </div>
         </header>
     );
