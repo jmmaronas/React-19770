@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function CartWidget(){    
     const [count, setCount]= useState([]);
     useEffect(() => {
-        setCount((JSON.parse(localStorage.getItem("carrito"))).length)        
+        localStorage.getItem("carrito") ? setCount((JSON.parse(localStorage.getItem("carrito"))).length) : setCount("0");        
     }, []);
     
     // document.querySelector("body").addEventListener("click", (e)=>{
@@ -15,7 +15,7 @@ function CartWidget(){
     return(
         <div className="carritoNav"> 
             <NavLink to={"/carrito"}>
-                <img src="./assets/carrito.png" style={{ width: '2rem' }} alt='imagen en proceso'/>
+                <img src="/assets/carrito.png" style={{ width: '2rem' }} alt='imagen en proceso'/>
                 <p id="contadorCarrito">{count}</p>
             </NavLink>
         </div>

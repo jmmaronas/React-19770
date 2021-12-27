@@ -7,19 +7,18 @@ import { useState, useEffect } from "react";
 function CartItemContainer(){
     const [carrito, setCarrito]= useState([]);
     
-    
-    useEffect(() => {
-        setCarrito(JSON.parse(localStorage.getItem("carrito")));
-    }, []);
-    // document.querySelector("body").addEventListener("click", (e)=>{
-    //     if(e.target.classList.contains("agregarProducto")){
-    //       setCarrito(JSON.parse(localStorage.getItem("carrito")));
-    //     }else if(e.target.classList.contains("botonBorrar")){
-    //       setCarrito(JSON.parse(localStorage.getItem("carrito")));
-    //     }  
-    // });
-    
+    function quitar(id) { 
+        // console.log(id);
+        const copiaCarrito= carrito.slice(0)
+        setCarrito(copiaCarrito.filter(e => e.id !== id));   
+        // console.log(carrito);
+        // localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
 
+    useEffect(() => {
+        setCarrito(JSON.parse(localStorage.getItem("carrito")) || []);        
+    }, []);
+        
     let total=0;
     carrito.map(e=>{return total+=(e.precio*e.cantidad)})
     return(       
@@ -34,7 +33,7 @@ function CartItemContainer(){
                 </tr>
             </thead>
             <tbody>
-                {carrito.map(e =><CartItem key= {e.id} itemCarrito={e}/>)}
+                {carrito.map(e =><CartItem key= {e.id} itemCarrito={e} quitar={quitar}/>)}
                 <tr>
                     <td colSpan={2}>Totales</td>
                     <td colSpan={2}>{total}</td>

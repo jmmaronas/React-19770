@@ -1,11 +1,11 @@
 import { useState } from "react";
+//Bootstrap
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 
-
-function ItemCount({producto}){
+function ItemCount({producto, validar}){
     const [counter, setState]= useState(producto.cantidad);
     function agregar(){
         let carrito= JSON.parse(localStorage.getItem("carrito")) || [];
@@ -18,11 +18,13 @@ function ItemCount({producto}){
             carrito[indice].cantidad+=counter ;
         }
         
-        localStorage.setItem("carrito", JSON.stringify(carrito));           
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        validar();
     }
     
    return(
-        <>
+        <>   
+            
             <Container fluid>
                 <Row>
                     <Col><Button variant="outline-danger" onClick={()=>counter > 1 ? setState(counter - 1) : counter}>-</Button></Col>
@@ -33,6 +35,7 @@ function ItemCount({producto}){
                     <Col><Button variant="outline-danger" className="agregarProducto" onClick={agregar}>Agregar</Button></Col>
                 </Row>                    
             </Container>
+            
         </>
    )
 }

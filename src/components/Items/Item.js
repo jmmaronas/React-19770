@@ -4,12 +4,11 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import { Link } from 'react-router-dom';
 
 
-function Item({e}){    
-    const path = window.location.pathname;
+function Item({e}){        
     return(
         <Link to={"/item/"+e.id}>   
             <Card  style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={path!=="/" ? "."+e.img : e.img} alt="cargando"/>
+                <Card.Img variant="top" src={e.img} alt="cargando"/>
                 <Card.Body>
                     <Card.Title>{e.name}</Card.Title>
                     <Card.Text>

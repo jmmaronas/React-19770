@@ -14,7 +14,7 @@ function ItemListContainer() {
       fetch("./productos.json")
         .then(res => res.json())
         .then(
-          (result) => {            
+          (result) => {           
               setIsLoaded(true);
               setItems(result);            
           },
