@@ -9,9 +9,25 @@ import ItemCount from './ItemCount';
 import { FiShoppingCart } from "react-icons/fi";
 
 function ItemDetail({e}) {
-    const [validador, setValidador]=useState(true);
+    const [counter, setCounter]= useState(1);
+    const [cart, setCart] = useState([]);
+    const [validador, setValidador]= useState(true);
+    // Si el estado es true muestra el ItemCount
     function validar(){
         setValidador(!validador);
+    }
+    // incrementa el count
+    function incrementar() {
+        setCounter( counter + 1);
+    }
+    // disminuye el count
+    function disminuir() {
+        setCounter( counter - 1);
+    }
+    //agrega el producto a cart ** no logro que agregue, creo que se me limpia el cart constantemente
+    function agregarCarrito(params) {
+        setCart(cart.push(params));
+        console.log(cart)
     }
     
     return(
@@ -28,7 +44,7 @@ function ItemDetail({e}) {
                     <ListGroupItem>$ {e.precio}</ListGroupItem>
                     <ListGroupItem>
                         {/* Si el estado validar es true muetro el Count sino un link a carrito */}
-                        {validador ? <ItemCount producto={e} validar={validar}/>: <h4><Link to="/carrito">Producto Agregado <FiShoppingCart/></Link></h4>}                        
+                        {validador ? <ItemCount producto={e} validar={validar} incrementar={incrementar} disminuir={disminuir} counter={counter} agregarCarrito={agregarCarrito}/>: <h4><Link to="/carrito">Producto Agregado <FiShoppingCart/></Link></h4>}                        
                     </ListGroupItem>                                    
                 </ListGroup>                
             </Card>
