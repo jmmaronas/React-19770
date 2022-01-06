@@ -11,7 +11,7 @@ function ItemListContainer() {
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-      fetch("./productos.json")
+      fetch("/productos.json")
         .then(res => res.json())
         .then(
           (result) => {           

@@ -1,26 +1,21 @@
 import CartItem from "./CartItem";
 import { Table } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useContexto } from "../Context/CartContext";
+//import { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
+
 
 //const cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function CartItemContainer(){
-    const [carrito, setCarrito]= useState([]);
+    const { cart, delToCart, clearCart } = useContexto();
     
     function quitar(id) { 
-        // console.log(id);
-        const copiaCarrito= carrito.slice(0)
-        setCarrito(copiaCarrito.filter(e => e.id !== id));   
-        // console.log(carrito);
-        // localStorage.setItem("carrito", JSON.stringify(carrito));
+        delToCart(id)
     }
-
-    useEffect(() => {
-        setCarrito(JSON.parse(localStorage.getItem("carrito")) || []);        
-    }, []);
         
     let total=0;
-    carrito.map(e=>{return total+=(e.precio*e.cantidad)})
+    cart.map(e=>{return total+=(e.precio*e.cantidad)})
     return(       
         <div className="tableContainer container">
             <Table striped bordered hover>
@@ -33,10 +28,13 @@ function CartItemContainer(){
                 </tr>
             </thead>
             <tbody>
-                {carrito.map(e =><CartItem key= {e.id} itemCarrito={e} quitar={quitar}/>)}
+                {cart.map(e =><CartItem key= {e.id} itemCarrito={e} quitar={quitar}/>)}
                 <tr>
                     <td colSpan={2}>Totales</td>
                     <td colSpan={2}>{total}</td>
+                </tr>
+                <tr>
+                    <td colSpan={4}><Button variant="success" onClick={clearCart}>vaciar carrito</Button> </td>
                 </tr>
             </tbody>           
 
