@@ -11,8 +11,7 @@ import { useContexto } from '../Context/CartContext';
 
 function ItemDetail({e}) {
     const {addToCart} = useContexto();
-    const [counter, setCounter]= useState(1);
-    //const [cart, setCart] = useState([]);
+    const [counter, setCounter]= useState(1);    
     const [validador, setValidador]= useState(true);
     // Si el estado es true muestra el ItemCount
     function validar(){
@@ -33,14 +32,7 @@ function ItemDetail({e}) {
     //agrega el producto a cart ** no logro que agregue, creo que se me limpia el cart constantemente
     function agregarCarrito(product){
         addToCart(product, counter);
-    }
-    // function agregarCarrito(params) {  
-    //     let arrayNuevo=JSON.parse(localStorage.getItem("carrito")) || [];
-    //     let indice = arrayNuevo.findIndex(e=>e.id===params.id);     
-    //     indice ===-1 ? arrayNuevo.push(params) : arrayNuevo[indice].cantidad+=counter;
-    //     setCart(cart.push(...arrayNuevo));
-    //     localStorage.setItem("carrito", JSON.stringify(cart));
-    // }
+    }    
     
     return(           
         <Card  style={{ width: '18rem', margin: 'auto' }}>

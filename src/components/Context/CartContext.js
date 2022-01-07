@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react"
 
-const cartContext= createContext();
+const cartContext = createContext();
 
 export const { Provider } = cartContext;
 
@@ -11,10 +11,11 @@ export function useContexto(){
 function CartProvider( {children} ) {
     const [cart, setCart]= useState(JSON.parse(localStorage.getItem("carrito")) || [])    
     
-    function isInCache(product) {
-        return cart.includes(e => e.id === product.id);
+    function isInCart(product) {
+        return cart.some(e=>e.id === product.id);
     }    
     function addToCart(product, counter) { 
+        console.log(isInCart(product));
         product.cantidad=counter;       
         let arrayNuevo= cart.slice(0)
         let indice = arrayNuevo.findIndex(e=>e.id===product.id);     
@@ -34,7 +35,7 @@ function CartProvider( {children} ) {
     const valorDelContexto={ 
         cart,
         addToCart, 
-        isInCache, 
+        isInCart, 
         delToCart, 
         clearCart, 
         cartZize: cart.length || 0
