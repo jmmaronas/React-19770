@@ -2,7 +2,7 @@ import Navbar from './components/NavBar/Navbar';
 import ItemListContainer from './components/Items/ItemListContainer';
 import CartItemContainer from './components/Cart/CartItemContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
-import ItemNewContainer from './components/ItemNews/ItemNewContiner';
+//import ItemNewContainer from './components/ItemNews/ItemNewContiner';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartProvider from './components/Context/CartContext';
 
@@ -14,8 +14,9 @@ import './App.css';
 
 const links=[   
   {href:"/", name:"Inicio", id: 1},
-  {href:"categoria/novedades", name:"Novedades", id: 2}, 
-  {href:"categoria/descuentos", name:"Descuentos", id: 3}  
+  {href:"categoria/escritorio", name:"Pc Escritorio", id: 2}, 
+  {href:"categoria/portatil", name:"Notebook", id: 3},
+  {href:"categoria/tablet", name:"Tablet", id: 4}    
 ]; 
 
 
@@ -29,7 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ItemListContainer/>} />
           <Route path="/item/:id" element={<ItemDetailContainer/>}/>          
-          <Route path="/categoria/:filter" element={<ItemNewContainer/>}/>  
+          <Route path="/categoria/:filter" element={<ItemListContainer/>}/>  
           <Route path="/carrito" element={<CartItemContainer />}/>                  
         </Routes>
       </BrowserRouter>    

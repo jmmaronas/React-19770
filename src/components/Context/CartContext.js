@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 const cartContext = createContext();
 
@@ -9,36 +9,48 @@ export function useContexto(){
 } 
 
 function CartProvider( {children} ) {
-    const [cart, setCart]= useState(JSON.parse(localStorage.getItem("carrito")) || [])    
-    
+    const [cart, setCart]= useState(JSON.parse(localStorage.getItem("carrito")) || []);
+    const [cantidadProductos, setCantidadProductos]= useState(0);
+
     function isInCart(product) {
         return cart.some(e=>e.id === product.id);
     }    
-    function addToCart(product, counter) { 
+    function addToCart(product, cantidad) {         
         console.log(isInCart(product));
-        product.cantidad=counter;       
         let arrayNuevo= cart.slice(0)
         let indice = arrayNuevo.findIndex(e=>e.id===product.id);     
-        indice ===-1 ? arrayNuevo.push(product) : arrayNuevo[indice].cantidad+=counter;                
+        indice === -1 ? arrayNuevo.push({...product, cantidad}) : arrayNuevo[indice].cantidad+=cantidad;    
         setCart(arrayNuevo);  
+        setCantidadProductos(cantidadProductos + cantidad);
         localStorage.setItem("carrito", JSON.stringify(arrayNuevo));        
     }
     function delToCart(id){
-        setCart(cart.filter(e => e.id !== id));
-        localStorage.setItem("carrito", JSON.stringify(cart));
+        let carrito=cart.slice(0);
+        let carritoFinal=carrito.filter(e=> e.id !== id)
+        let cantidadProductoEliminado = carrito.find(e=>e.id === id).cantidad;                 
+        setCart(carritoFinal);        
+        setCantidadProductos(cantidadProductos - cantidadProductoEliminado);
+        localStorage.setItem("carrito", JSON.stringify(carritoFinal));
     }
     function clearCart(){
         setCart([]);
+        setCantidadProductos(0);
         localStorage.clear();
     }
 
+    
+    useEffect(() => {
+        let cantidaStorage= localStorage.getItem("carrito") ? JSON.parse(localStorage.getItem("carrito")).map(e=>e.cantidad++) : 0;        
+        setCantidadProductos(cantidaStorage[0]);        
+    }, []);
+
     const valorDelContexto={ 
         cart,
+        cantidadProductos,
         addToCart, 
         isInCart, 
         delToCart, 
-        clearCart, 
-        cartZize: cart.length || 0
+        clearCart        
     }
 
     return(

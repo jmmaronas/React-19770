@@ -7,9 +7,10 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ItemCount from './ItemCount';
 //Fonstawesome
 import { FiShoppingCart } from "react-icons/fi";
+//
 import { useContexto } from '../Context/CartContext';
 
-function ItemDetail({e}) {
+function ItemDetail({e}) {    
     const {addToCart} = useContexto();
     const [counter, setCounter]= useState(1);    
     const [validador, setValidador]= useState(true);
@@ -40,11 +41,11 @@ function ItemDetail({e}) {
             <Card.Body>
                 <Card.Title>{e.name}</Card.Title>
                 <Card.Text>
-                    {e.detalle}
+                    {e.desccription}
                 </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-                <ListGroupItem>$ {e.precio}</ListGroupItem>
+                <ListGroupItem>$ {e.price}</ListGroupItem>
                 <ListGroupItem>
                     {/* Si el estado validar es true muetro el Count sino un link a carrito */}
                     {validador ? <ItemCount producto={e} validar={validar} incrementar={incrementar} disminuir={disminuir} counter={counter} agregarCarrito={agregarCarrito}/>: <h4><Link to="/carrito">Producto Agregado <FiShoppingCart/></Link></h4>}                        
