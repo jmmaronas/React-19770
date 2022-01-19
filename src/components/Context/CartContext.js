@@ -39,9 +39,12 @@ function CartProvider( {children} ) {
     }
 
     
-    useEffect(() => {
-        let cantidaStorage= localStorage.getItem("carrito") ? JSON.parse(localStorage.getItem("carrito")).map(e=>e.cantidad++) : 0;        
-        setCantidadProductos(cantidaStorage[0]);        
+    useEffect(() => { 
+        let cantidaStorage=0;
+        if(localStorage.getItem("carrito")){
+            JSON.parse(localStorage.getItem("carrito")).map(e=>{return cantidaStorage+=e.cantidad})
+        }       
+        setCantidadProductos(cantidaStorage);        
     }, []);
 
     const valorDelContexto={ 

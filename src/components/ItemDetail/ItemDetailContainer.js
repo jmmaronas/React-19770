@@ -1,18 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-//
 import { collection, getDoc, doc } from 'firebase/firestore';
 import { db } from '../Firestore/firestore';
-//
 import ItemDetail from "./ItemDetail";
     
-function ItemDetailContainer(){
-    // const products= JSON.parse(localStorage.getItem("listProduct"));
-    //const {id}=useParams(); 
-    //const [products, setProducts()]=useState(null);
-    // return(
-    //     <ItemDetail e={products.find(e=>e.id === id.toString())}/>
-    // )
+function ItemDetailContainer(){    
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [item, setItem] = useState(null);

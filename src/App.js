@@ -2,15 +2,10 @@ import Navbar from './components/NavBar/Navbar';
 import ItemListContainer from './components/Items/ItemListContainer';
 import CartItemContainer from './components/Cart/CartItemContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
-//import ItemNewContainer from './components/ItemNews/ItemNewContiner';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartProvider from './components/Context/CartContext';
-
-//CSS Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-//CSS
 import './App.css';
-
 
 const links=[   
   {href:"/", name:"Inicio", id: 1},
@@ -18,8 +13,6 @@ const links=[
   {href:"categoria/portatil", name:"Notebook", id: 3},
   {href:"categoria/tablet", name:"Tablet", id: 4}    
 ]; 
-
-
 
 function App() {   
   

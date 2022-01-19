@@ -1,6 +1,4 @@
-//Bootstrap
 import { Container, Col, Row, Button } from "react-bootstrap";
-
 
 function ItemCount({producto, validar, incrementar, disminuir, counter, agregarCarrito}){
     

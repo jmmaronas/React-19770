@@ -1,13 +1,9 @@
 import ItemList from './ItemList'
-//
 import { Spinner } from 'react-bootstrap'
-
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { db } from '../Firestore/firestore';
 import { getDocs, query, collection, where } from 'firebase/firestore';
-
-console.log(db)
 
 function ItemListContainer() {
   const [error, setError] = useState(null);
@@ -57,8 +53,7 @@ function ItemListContainer() {
         <p className='mx-4'>Loading....</p>
       </div>
     );
-  } else {
-    localStorage.setItem("listProduct", JSON.stringify(items));
+  } else {    
     return (<ItemList productos={items.slice(0)}/>);
   }
 }

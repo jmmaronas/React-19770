@@ -1,8 +1,6 @@
 import CartItem from './CartItem';
 import { db } from '../Firestore/firestore'
-//Bootstrap
 import { Button,Table, Form } from 'react-bootstrap';
-//
 import { useContexto } from '../Context/CartContext';
 import { Link } from 'react-router-dom';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
@@ -28,7 +26,7 @@ function CartItemContainer(){
         })
         .then((result)=>alert("Gracias por su compra, numero de operación  "+ result.id ));
         clearCart();
-        document.getElementById("form").reset();        
+        e.target.reset();         
     }
     
         
