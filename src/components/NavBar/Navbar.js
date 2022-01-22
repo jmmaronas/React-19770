@@ -1,8 +1,9 @@
 import CartWidget from './CartWidget';
 import { NavLink} from 'react-router-dom';
+import { useContexto } from '../Context/CartContext';
 
 function Navbar({nombre, apellido, links}){  
-   
+    const {cantidadProductos} = useContexto();
     return(
         <header className="head">
             <div>
@@ -13,7 +14,7 @@ function Navbar({nombre, apellido, links}){
                     <ul>{links.map( (e, i) =><li key={i}><NavLink to={e.href}>{e.name} </NavLink></li> )}    
                     </ul>                       
                 </nav>
-                <CartWidget/>
+                <CartWidget cantidadProductos={cantidadProductos}/>
             </div>
         </header>
     );

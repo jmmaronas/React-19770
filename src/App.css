@@ -32,8 +32,7 @@ nav{
   margin: auto;
 }
 .head img{  
-  height: 3rem;
-  margin-top: 2rem;
+  height: 3rem;  
 }
 .cardContainer{
   display: flex;  
