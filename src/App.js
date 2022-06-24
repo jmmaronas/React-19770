@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartProvider from './components/Context/CartContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Count from './components/ItemDetail/Count'
+
 const links=[   
   {href:"/", name:"Inicio", id: 1},
   {href:"categoria/escritorio", name:"Pc Escritorio", id: 2}, 
