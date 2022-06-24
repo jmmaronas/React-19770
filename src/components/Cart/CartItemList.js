@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function CartItemList({ clearCart, quitar, total, cart }){
     
     return(
-        <div className="conainer  d-flex flex-column me-4 mt-4 col-8 fs-4">
+        <div className="conainer  d-flex flex-column me-4 mt-4 col-12 col-md-7 fs-4">
             <Table striped bordered hover>
                         <thead className='text-white'>
                             <tr>

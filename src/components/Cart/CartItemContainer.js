@@ -32,7 +32,7 @@ function CartItemContainer(){
     let total=0;
     cart.map(e=>{return total+=(e.price*e.cantidad)})
     return(       
-        <div className="tableContainer container">
+        <div className="tableContainer container d-flex flex-wrap">
             <CartItemList clearCart={clearCart} quitar={quitar} total={total} cart={cart}/>           
             <CartForm confirmarCompra={confirmarCompra}/>    
         </div>   

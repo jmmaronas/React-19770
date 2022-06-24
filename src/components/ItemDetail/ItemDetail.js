@@ -6,6 +6,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ItemCount from './ItemCount';
 import { FiShoppingCart } from "react-icons/fi";
 import { useContexto } from '../Context/CartContext';
+import Count from "./Count";
 
 function ItemDetail({e}) {    
     const {addToCart} = useContexto();
@@ -46,7 +47,8 @@ function ItemDetail({e}) {
                 <ListGroupItem>    
                     {validador ? <ItemCount producto={e} validar={validar} incrementar={incrementar} disminuir={disminuir} counter={counter} agregarCarrito={agregarCarrito}/>: <h4><Link to="/carrito">Producto Agregado <FiShoppingCart/></Link></h4>}                        
                 </ListGroupItem>                                    
-            </ListGroup>                
+            </ListGroup> 
+            <Count/>               
         </Card>                
     )    
 }

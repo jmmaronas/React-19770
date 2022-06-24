@@ -2,7 +2,7 @@ import { Form, Button } from 'react-bootstrap'
 
 function CartForm({ confirmarCompra }){
     return(
-        <Form id="form" action="#" onSubmit={confirmarCompra} className='d-flex flex-column m-auto text-white fw-bold'>
+        <Form id="form" action="#" onSubmit={confirmarCompra} className='d-flex flex-column m-auto text-white fw-bold col-12 col-md-4'>
             <Form.Group className="mb-3" controlId="formNombre">
                 <Form.Label>Apellido y Nombre</Form.Label>
                 <Form.Control type="text" placeholder="Ex. Juan Perez" />                    
